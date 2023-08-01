@@ -1,13 +1,14 @@
 #######################
 
 from selenium import webdriver
+from selenium.webdriver.common.by import By
 import time
 
 starttime = time.perf_counter()
 browser = webdriver.Firefox()
 browser.get('https://www.nytimes.com/puzzles/sudoku/hard')
 
-elements = browser.find_elements_by_css_selector("[data-cell]")
+elements = browser.find_element(By.CSS_SELECTOR,"[data-cell]") # something is wrong with the data-cell selection
 
 numlist = [0] * 81
 for i in range(elements.__len__()):
